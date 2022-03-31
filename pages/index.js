@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
-const endpoint = "https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=nba";
+const endpoint = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=rum";
 export async function getServerSideProps() {
   const res = await fetch(endpoint);
   const data = await res.json();
@@ -13,20 +13,20 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ data }) {
-  const { teams = [] } = data;
+  const { drinks = [] } = data;
   return (
-    <div className="teams">
+    <div className="drinks">
       <Head>
-        <title>NBA Teams | 2022</title>
+        <title>Rum Cocktails</title>
       </Head>
-      {teams.map((team) => {
-        const { idTeam, strTeam, strTeamBadge } = team;
+      {drinks.map((drink) => {
+        const { idDrink, strDrink, strDrinkThumb } = drink;
         return (
-          <span key={idTeam}>
-            <Link href="/team/[name]" as={`/team/${strTeam}`}>
+          <span key={idDrink}>
+            <Link href="/drink/[name]" as={`/drink/${strDrink}`}>
               <a>
-                <img src={strTeamBadge} width="100" />
-                <p>{strTeam}</p>
+                <img src={strDrinkThumb} width="100" />
+                <p>{strDrink}</p>
               </a>
             </Link>
           </span>

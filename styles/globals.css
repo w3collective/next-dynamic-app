@@ -14,3 +14,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.drinks {
+  padding: 5%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 1rem;
+}
+
+.drink {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+.drink img {
+  max-width: 100%;
+  display: block;
+}
